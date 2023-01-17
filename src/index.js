@@ -1,7 +1,7 @@
 const express = require('express');
 const sqlite = require('sqlite3').verbose();
 const db = new sqlite.Database('./banco.sqlite');
-const bookModuleRouter = require('./module/book/book.module')
+const bookModuleRouter = require('./module/book/router/book.router')
 const app = express();
 
 app.use(express.json());
@@ -31,6 +31,7 @@ db.serialize(() => {
       foreign key (ideditor) references editor(id)
     );");`);
 })
+
 
 app.use(bookModuleRouter);
 
