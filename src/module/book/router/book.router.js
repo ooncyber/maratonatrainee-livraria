@@ -1,13 +1,13 @@
 const express = require('express');
 
-const BookModuleUseCase = require('../usecase/book.module');
+const BookUseCase = require('../usecase/book.usecase');
 
 const bookRouter = express.Router();
 
-bookRouter.get('/book', BookModuleUseCase.getAll)
-bookRouter.get('/book/:id', BookModuleUseCase.getOne)
-bookRouter.post('/book/:id', BookModuleUseCase.insert)
-bookRouter.patch('/book/:id', BookModuleUseCase.update)
-bookRouter.delete('/book/:id', BookModuleUseCase.delete)
+bookRouter.get('/book', BookUseCase.getAll)
+bookRouter.get('/book/:id', BookUseCase.getOne)
+bookRouter.post('/book/:id', BookUseCase.insert)
+bookRouter.patch('/book/:id', BookUseCase.update)
+bookRouter.delete('/book/:id', BookUseCase.delete)
 
 module.exports = bookRouter
