@@ -37,6 +37,14 @@ app.use(authorRouter);
 app.use(bookAuthorRouter)
 
 app.use((err, req, res, next) => {
+  console.log(`Erro-----------------`)
+  console.log(`Erro-----------------`)
+  console.log(`Erro-----------------`)
+  console.log(err);
+  console.log(`Erro-----------------`)
+  console.log(`Erro-----------------`)
+  console.log(`Erro-----------------`)
+  
   if(err && err.statusCode == 400){
     return res.status(400).json({message: 'Formatação de JSON incorreta.'})
   }
