@@ -2,7 +2,6 @@ const express = require('express');
 const sqlite = require('sqlite3').verbose();
 const db = new sqlite.Database('./banco.sqlite');
 const bookModuleRouter = require('./module/book/router/book.router');
-const editorRouter = require('./module/editor/router/editor.router');
 const authorRouter = require('./module/author/router/author.router');
 const bookAuthorRouter = require('./module/book_author/router/book_author.router');
 const app = express();
@@ -35,7 +34,6 @@ db.serialize(() => {
 
 app.use(bookModuleRouter);
 app.use(authorRouter);
-app.use(editorRouter);
 app.use(bookAuthorRouter)
 
 app.use((err, req, res, next) => {
