@@ -1,5 +1,6 @@
 const express = require('express');
 const sqlite = require('sqlite3').verbose();
+const cors = require('cors');
 const db = new sqlite.Database('./banco.sqlite');
 const bookModuleRouter = require('./module/book/router/book.router');
 const authorRouter = require('./module/author/router/author.router');
@@ -8,6 +9,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors())
 
 
 db.serialize(() => {
